@@ -1362,8 +1362,8 @@ int udhcpc_main(int argc UNUSED_PARAM, char **argv)
 	if (udhcp_read_interface(client_data.interface,
 			&client_data.ifindex,
 			NULL,
-			client_config.client_mac,
-			&client_config.client_mtu)
+			client_data.client_mac,
+			&client_data.client_mtu)
 	) {
 		return 1;
 	}
@@ -1470,8 +1470,8 @@ int udhcpc_main(int argc UNUSED_PARAM, char **argv)
 			if (udhcp_read_interface(client_data.interface,
 					&client_data.ifindex,
 					NULL,
-					client_config.client_mac,
-					&client_config.client_mtu)
+					client_data.client_mac,
+					&client_data.client_mtu)
 			) {
 				goto ret0; /* iface is gone? */
 			}

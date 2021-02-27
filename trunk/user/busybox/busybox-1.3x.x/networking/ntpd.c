@@ -162,7 +162,7 @@
  *   datapoints after the step.
  */
 
-#define INITIAL_SAMPLES    4    /* how many samples do we want for init */
+#define INITIAL_SAMPLES    2    /* how many samples do we want for init */
 #define MIN_FREQHOLD      10    /* adjust offset, but not freq in this many first adjustments */
 #define BAD_DELAY_GROWTH   4    /* drop packet if its delay grew by more than this factor */
 
@@ -202,7 +202,7 @@
  * then it is decreased _at once_. (If <= 2^BIGPOLL, it will be decreased _eventually_).
  */
 #define BIGPOLL         9       /* 2^9 sec ~= 8.5 min */
-#define MAXPOLL         12      /* maximum poll interval (12: 1.1h, 17: 36.4h). std ntpd uses 17 */
+#define MAXPOLL         16      /* maximum poll interval (12: 1.1h, 17: 36.4h). std ntpd uses 17 */
 /*
  * Actively lower poll when we see such big offsets.
  * With SLEW_THRESHOLD = 0.125, it means we try to sync more aggressively

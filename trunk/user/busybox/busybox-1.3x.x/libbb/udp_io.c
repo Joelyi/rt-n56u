@@ -80,7 +80,12 @@ send_to_from(int fd, void *buf, size_t len, int flags,
 	 * was seen showing IPv6 "from" even when the destination
 	 * of received packet (our local address) was IPv4.
 	 */
-	if (/* to->sa_family == AF_INET && */ from->sa_family == AF_INET) {
+	# if ENABLE_FEATURE_IPV6
+	if ((to->sa_family == AF_INET || to->sa_family == AF_INET6)
+# else
+	if ((to->sa_family == AF_INET)
+# endif
+	    && from->sa_family == AF_INET) {
 		struct in_pktinfo *pktptr;
 		cmsgptr->cmsg_level = IPPROTO_IP;
 		cmsgptr->cmsg_type = IP_PKTINFO;
